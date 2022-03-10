@@ -32,8 +32,9 @@ class SettingServiceProvider extends ServiceProvider
     {
         if (!\app()::runningInConsole() && count(Schema::getColoumnListing('settings'))) {
             $settings = Setting::all();
-            foreach ($settings as $key => $setting) {
-                Config::set('settings.' . $setting->key, $setting->value);
+            foreach ($settings as $key => $setting) 
+            {
+                Config::set('settings.'.$setting->key, $setting->value);
             }
         }
     }
